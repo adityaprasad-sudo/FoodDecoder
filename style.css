@@ -1,0 +1,33 @@
+:root {
+    --bg-color: #f0fbf5; /* Soft mint background */
+    --text-dark: #1b3a4b; /* Deep teal/navy for text */
+    --primary-green: #82c59c; /* Main button green */
+    --secondary-gray: #e2e6e9; /* Secondary button gray */
+    --accent-orange: #f28b4b; /* Donate button orange */
+    --card-bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+.backgrounddecor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: radial-gradient(#d1eadd 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+    z-index: -1;
+}
