@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredient Analyser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ingredient Analyser</h1>
+        <p>Upload a photo of your food's ingredient list to analyse its components.</p>
+    </header>
+    <main>
+        <div class="upload-section">
+            <input type="file" id="imageInput" accept="image/*">
+            <label for="imageInput" class="upload-label">Choose an image</label>
+            <button id="analyseButton">Analyse Ingredients</button>
+        </div>
+        <div class="preview-section" id="previewsection" style="display: none;">
+            <img id="imagePreview" src="#" alt="food Preview">
+            <button id="analysebut" class="analyse-but">Analyse Food</button>
+        </div>
