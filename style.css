@@ -105,7 +105,7 @@ body {
     flex-direction: column;
 }
 
-.primary-btn , .secondarybtn{
+.primary-btn , .secondary-btn{
     padding: 15px 25px;
     border: none;
     border-radius: 50px;
@@ -122,13 +122,13 @@ body {
     box-shadow: 0 4px 15px rgba(130, 197, 156, 0.4);
 }
 
-.secondarybtn {
+.secondary-btn {
     background-color: var(--secondary-gray);
     color: var(--text-dark);
     display: inline-block;
 }
 
-.primary-btn:hover, .secondarybtn:hover {
+.primary-btn:hover, .secondary-btn:hover {
     transform: translateY(-2px);
 }
 
@@ -204,3 +204,106 @@ body {
     box-shadow: 0 0 10px #00ff00;
     animation: scan 2s infinite alternate;
 }
+
+@keyframes scan {
+    to{ top: 100%; }
+}
+
+.stepsection {
+    background: white;
+    padding: 20px;
+    gap: 20px;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+}
+
+.stepcard {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border-radius: 1px solid #f0f0f0;
+}
+
+.chemistrysection { margin-bottom: 60px; }
+.chemistrysection h3 { text-align: center; margin-bottom: 20px; font-size: 1.2rem; }
+
+.chemistrygrid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.chemcard {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.chemcard h4 { font-size: 0.95rem; margin-bottom: 15px; }
+.graphplaceholder { font-size: 2rem; color: #555; }
+.graphplaceholder small { font-size: 0.7rem; color: #888; display: block; margin-top: 5px; }
+.flexicons { display: flex; justify-content: space-around; align-items: center; }
+.vs { font-size: 1rem; font-weight: bold; color: #ccc; }
+
+.missionsection {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.counters {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.counter h3 { font-size: 1.8rem; }
+.counter p { font-size: 0.85rem; font-weight: 600; color: #666; }
+
+.missionbox {
+    flex: 2;
+    background: #e6f4ea;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.mapplaceholder {
+    font-size: 5rem;
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 50%;
+}
+.pin { position: absolute; font-size: 1rem; bottom: 10px; left: 50%; transform: translateX(-50%); font-weight: bold;}
+
+.missiontext h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.missiontext p { font-size: 0.9rem; margin-bottom: 15px; color: #444; }
+
+.donatebtn {
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    background: transparent;
+}
+footer a { color: var(--text-dark); text-decoration: none; font-weight: bold; }
