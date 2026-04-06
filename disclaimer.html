@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer — DecodeFood</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .abouther {
+            text-align: center;
+            padding: 80px 20px 40px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .abouther .eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            /* Using the accent orange variable for a caution/disclaimer feel */
+            color: var(--accent-orange); 
+            background: rgba(255, 149, 0, 0.1);
+            padding: 6px 14px;
+            border-radius: 980px;
+            margin-bottom: 20px;
+        }
+        .abouther h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .abouther p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .legalcon {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .legalbox {
+            background: var(--card-bg);
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-subtle);
+            padding: 40px;
+            transition: transform 0.3s ease;
+        }
+        
+        .legalbox:hover {
+            transform: translateY(-2px);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .legal-icon {
+            font-size: 1.8rem;
+            width: 48px;
+            height: 48px;
+            background: var(--bg-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .legalbox h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .legalbox p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .legalbox p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lastestupdate {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 80px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .abouther h1 { font-size: 2.2rem; }
+            .legalbox { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="navthings">
+        <a href="index.html" class="logo" style="text-decoration:none; color: var(--text-dark);">Decode<span>Food</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="navportal" id="navLinks">
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Database</a></li>
+            <li><a href="#">Science</a></li>
+            <li><a href="#" class="highlight-link">Support Me(Donate)</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+
+    <div class="abouther fade-in-up">
+        <span class="eyebrow">Important Information</span>
+        <h1>Legal Disclaimer</h1>
+        <p>Please read this carefully before using DecodeFood. By using this application, you agree to the following terms and limitations.</p>
+    </div>
+
+    <div class="legalcon">
+        <div class="legalbox fade-in-up" style="transition-delay:0.1s;">
+            <div class="header">
+                <div class="legal-icon">🩺</div>
+                <h3>1. Not Medical Advice</h3>
+            </div>
+            <p>DecodeFood is designed for educational and informational purposes only. The health summaries, scores, and insights provided by this application <strong>do not constitute professional medical advice, diagnosis, or treatment.</strong></p>
+            <p>Always seek the advice of your physician, nutritionist, or other qualified health provider with any questions you may have regarding a medical condition, dietary restrictions, or nutrition planning.</p>
+        </div>
+
+        <div class="legalbox fade-in-up" style="transition-delay:0.2s;">
+            <div class="header">
+                <div class="legal-icon">🤖</div>
+                <h3>2. AI Limitations & Accuracy</h3>
+            </div>
+            <p>The analysis provided by DecodeFood is generated dynamically using Large Language Models (LLMs) like Gemini and Nemotron. While these models are highly capable, <strong>AI can make mistakes, omit context, or hallucinate information.</strong></p>
+            <p>Do not blindly trust the AI verdict. It is an interpretation of text, not a laboratory analysis of the actual physical food product.</p>
+        </div>
+
+        <div class="legalbox fade-in-up" style="transition-delay:0.3s;">
+            <div class="header">
+                <div class="legal-icon">⚠️</div>
+                <h3>3. Allergens & Crowdsourced Data</h3>
+            </div>
+            <p>Our barcode scanner relies on <strong>OpenFoodFacts.org</strong>, a free and open crowdsourced database. Product formulations change frequently, and user-submitted data may be incomplete, outdated, or entirely incorrect.</p>
+            <p>If you have severe or life-threatening allergies (e.g., peanuts, gluten, dairy), <strong>you must ALWAYS read the physical packaging</strong> of the product before consumption. DecodeFood cannot guarantee the absence of allergens.</p>
+        </div>
+
+        <div class="legalbox fade-in-up" style="transition-delay:0.4s;">
+            <div class="header">
+                <div class="legal-icon">⚖️</div>
+                <h3>4. Limitation of Liability</h3>
+            </div>
+            <p>Aditya Prasad and the DecodeFood application accept no liability or responsibility for any adverse health effects, allergic reactions, damages, or losses resulting from the use of, or reliance upon, the information provided by this application.</p>
+        </div>
+    </div>
+
+    <p class="lastestupdate fade-in-up" style="transition-delay:0.5s;">Last Updated: April 2026</p>
+
+</main>
+
+<footer>
+    <p>Built with ❤️ for a healthier future • <a href="https://github.com/adityaprasad-sudo/FoodAnalayser">View Source</a></p>
+</footer>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+        });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
