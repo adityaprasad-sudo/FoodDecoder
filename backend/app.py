@@ -40,7 +40,7 @@ class TextRequest(BaseModel):
 def lobster():
     return {"message": "Lobster says its workin"}
 
-@app.post("/analyze_text")
+@app.post("/analyzetext")
 async def barcodetext(request: TextRequest):
      prompt = f""" 
      You are an expert food scientist and nutritionlist. Analyze the following list of ingredients: {request.ingredients}.
@@ -174,4 +174,3 @@ async def analyze_food(image: UploadFile = File(...), api_key: str = Form(...)):
                 raise HTTPException(status_code=500, detail="criticalchiggiset eror An error occurred while processing the image.")
 if __name__ == "__main__":
        uvicorn.run(app, host="0.0.0.0", port=7860)
-
