@@ -9,125 +9,128 @@
 </head>
 <body>
     <div class="background-decor pattern-top"></div>
-    
-    <nav class="navbar">
-        <div class="logo">
-            <div class="logo-icon">🍽️</div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">ⓘ About Us</a></li>
-            <li><a href="#">🔬 Chemical Database</a></li>
-            <li><a href="#">▤ How It Works</a></li>
-            <li><a href="#" class="highlight-link">💛 Support Us (Donate)</a></li>
+
+<nav class="navbar" id="navbar">
+    <div class="navthings">
+        <div class="logo">Decode<span>Food</span></div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="navportal" id="navLinks">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Source</a></li>
+            <li><a href="#">Disclaimer</a></li>
+            <li><a href="#" class="nav-btn highlight-link">Support Us</a></li>
         </ul>
-    </nav>
+    </div>
+</nav>
 
-    <main class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>DECODE YOUR FOOD.</h1>
-                <h2>Know What You Are Eating.</h2>
-                <p>Instant food label analysis for a healthier Lifestyle.<br>Powered by AI and regulatory science.</p>
-                
-                <div class="button-group">
-                    <button class="primary-btn">📷 SCAN BARCODE</button>
-                    <input type="file" id="imageInput" accept="image/*" hidden>
-                    <label for="imageInput" class="secondary-btn">📤 UPLOAD INGREDIENT PHOTO</label>
-                </div>
+<main class="container">
+    <section class="hero">
+        <div class="herocon fade-in-up" style="transition-delay: 0.1s;">
+            <h1 class="gradient-text">Decode Your Food.</h1>
+            <p class="hero-subtitle">Know What You Are Eating !!</p>
+            <div class="button-group">
+                <button class="primary-btn magnetic" id="openScannerBtn">Scan Barcode</button>
+                <input type="file" id="imageInput" accept="image/*" capture="environment" hidden>
+                <label for="imageInput" class="secondary-btn magnetic">Upload / Take Photo(use if scanner doesn't work)</label>
             </div>
+        </div>
 
-            <div class="hero-visual">
-                <div class="floating-ui-card top-card">
-                    <div class="ui-row">
-                        <span class="icon">🧪</span>
-                        <div>
-                            <strong>ADDITIVES: 3</strong>
-                            <span>(INS 211, INS 621, E300)</span>
-                        </div>
-                    </div>
-                    <div class="ui-row">
-                        <span class="icon">🧊</span>
-                        <div>
-                            <strong>HIDDEN SUGARS:</strong>
-                            <span>High (25g)</span>
-                        </div>
-                    </div>
+        <div class="herovi fade-in-up" style="transition-delay: 0.3s;">
+            <div class="glass-card floating-ui parallax-element" data-speed="0.05">
+                <div class="ui-row">
+                    <span class="badge red">Additives: 3</span>
+                    <p>INS 211, INS 621, E300</p>
                 </div>
-                <div class="scanning-illustration">
-                    <div class="chip-bag">🥔</div>
-                    <div class="phone-scanner">
-                        <div class="scan-line"></div>
-                    </div>
+                <div class="ui-divider"></div>
+                <div class="ui-row">
+                    <span class="badge orange">High Sugar</span>
+                    <p>25g detected</p>
                 </div>
             </div>
-        </section>
+            <div class="scanning-illustration parallax-element" data-speed="-0.03">
+                <div class="chip-bag floating-animation">🥔</div>
+                <div class="phone-scanner">
+                    <div class="scan-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="steps-section">
-            <div class="step-card">
-                <div class="step-icon">📦📱</div>
-                <h4>⚙️ SCAN</h4>
-                <p>1. Point your camera at the food label.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-icon">🧠⚙️</div>
-                <h4>⚙️ ANALYZE</h4>
-                <p>2. Our AI decodes every ingredient.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-icon">📄✅</div>
-                <h4>✅ RESULT</h4>
-                <p>3. Get a plain-English safety breakdown.</p>
-            </div>
-        </section>
+    <section class="steps-section">
+        <div class="step-card interactive-card fade-in-up" style="transition-delay: 0.1s;">
+            <div class="step-icon">📱</div><h4>Scan</h4>
+            <p>Point your camera at the food label or barcode.</p>
+            <div class="glare"></div>
+        </div>
+        <div class="step-card interactive-card fade-in-up" style="transition-delay: 0.2s;">
+            <div class="step-icon">🧠</div><h4>Analyze</h4>
+            <p>Our AI decodes every ingredient and additive.</p>
+            <div class="glare"></div>
+        </div>
+        <div class="step-card interactive-card fade-in-up" style="transition-delay: 0.3s;">
+            <div class="step-icon">✅</div><h4>Result</h4>
+            <p>Get a plain-English safety breakdown instantly with potential benefits and risks/allergens.</p>
+            <div class="glare"></div>
+        </div>
+    </section>
 
-        <section class="chemistry-section">
-            <h3>UNDERSTANDING THE CHEMISTRY</h3>
-            <div class="chemistry-grid">
-                <div class="chem-card">
-                    <h4>Maltodextrin</h4>
-                    <div class="graph-placeholder"><br><small>Maltodextrin is a carbohydrate used as a food additive to improve texture and extend shelf life. It is derived from starch and is commonly found in processed foods.</small></div>
-                </div>
-                <div class="chem-card">
-                    <h4>INS 621 Monosodium Glutamate (MSG)</h4>
-                    <div class="graph-placeholder">⌬─C(=O)O⁻ <br><small>Monosodium Glutamate (MSG) is a flavor enhancer commonly found in processed foods. It is derived from glutamic acid, an amino acid naturally present in many foods. MSG can enhance the umami flavor of dishes but may cause sensitivity in some individuals.</small></div>
-                </div>
-                <div class="chem-card">
-                    <h4>Propylene Glycol</h4>
-                    <div class="graph-placeholder flex-icons">
-                        <span>🧪<br><small>Food grade</small></span>
-                        <span class="vs">vs</span>
-                        <span>🏭<br><small>Industrial</small></span>
-                    </div>
-                </div>
+    <section class="chemistry-section">
+        <h2 class="section-title fade-in-up">Understanding the Science</h2>
+        <div class="bento-grid">
+            <div class="bento-card interactive-card fade-in-up" style="transition-delay: 0.1s;">
+                <h4>Maltodextrin</h4>
+                <p>A high-glycemic carbohydrate used to improve texture.</p>
+                <div class="glare"></div>
             </div>
-        </section>
-
-        <section class="mission-section">
-            <div class="counters">
-                <div class="counter">
-                    <h3>[Counter: 1,500+]</h3>
-                    <p>PRODUCTS ANALYZED</p>
-                </div>
-                <div class="counter">
-                    <h3>[Counter: 300+]</h3>
-                    <p>ADDITIVES IDENTIFIED</p>
-                </div>
+            <div class="bento-card interactive-card fade-in-up" style="transition-delay: 0.2s;">
+                <h4>MSG (INS 621)</h4>
+                <p>The pure essence of Umami. Decoded for sensitivity.</p>
+                <div class="glare"></div>
             </div>
-
-            <div class="mission-box">
-                <div class="map-placeholder">🗺️ <br><span class="pin"></span></div>
-                <div class="mission-text">
-                    <h3>Our Mission</h3>
-                    <p>To empower consumers with knowledge about the food they eat, promoting healthier choices and informed decision-making.</p>
-                    <button class="donate-btn">DONATE</button>
+            <div class="bento-card highlight interactive-card fade-in-up" style="transition-delay: 0.3s;">
+                <h4>Cottage Cheese (Panner)</h4>
+                <div class="comparison flex-icons">
+                    <span>Analogue</span><span class="vs">vs</span><span>Natural</span>
                 </div>
+                <div class="glare"></div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <footer>
-        <p>Built with ❤️ for a healthier future.</p>
-        <p><a href="https://github.com/adityaprasad-sudo/FoodAnalayser">Sourcecode</a></p>
-    </footer>
+<div class="scanner-modal" id="scannerModal">
+    <div class="scanner-backdrop"></div>
+    <div class="scanner-container">
+        <button class="close-modal" id="closeScannerBtn">×</button>
+        <div class="camera-viewport">
+            <div id="reader"></div>
+            <div class="corner top-left"></div><div class="corner top-right"></div>
+            <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
+            <div class="active-laser"></div>
+            <p class="scanner-status" id="scannerStatus">Initializing Camera...</p>
+        </div>
+        <div class="processing-ui" id="processingUI">
+            <div class="apple-spinner"></div>
+            <p class="processing-text">Analyzing Ingredients</p>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">Powered by AI</p>
+        </div>
+        <div class="mock-results" id="mockResults"></div>
+    </div>
+</div>
+
+<footer>
+    <p>Built with ❤️ for a healthier future • <a href="https://github.com/adityaprasad-sudo/FoodAnalayser">View Source(Github)</a></p>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
 </body>
 </html>
