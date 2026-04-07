@@ -50,6 +50,137 @@ body {
     to {rotate: 360deg;}
 }
 
+.herovi {
+    position: relative;
+    width: 500px;
+    height: 600px;
+    z-index: 1;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.stackglow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle,rgba(52,199,89,0.15),rgba(255,149,0,0.1), transparent 70%);
+    filter: blur(40px);
+    animation: pulseGloe 6s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+.mockupstack{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+}
+
+.glasscard {
+    position: absolute;
+    width: 250px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+    opacity: 0;
+    animation: slideUpFade 0.8s cubic-bezier(0.2,1,0.4,1) forwards, floatContinual 6s ease-in-out infinite;
+}
+
+.cardtop { top: 12%; right: 25%; animation-delay: 0.1s, 0.9s; z-index: 3;}
+.cardmid { top: 38%; right: 5%;  animation-delay: 0.25s, 1.2s; z-index: 2;}
+.cardbottom {bottom: 22%; right: 15%; animation-delay: 0.4s, 1.5s; z-index: 1;}
+
+.cardhead{
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #86868b;
+    letter-spacing: 0.05rem;
+    margin-bottom: 4px;
+}
+.scorenum{
+    font-size: 4rem;
+    font-weight: 800;
+    color: #34c759;
+    letter-spacing: -0.05rem;
+    line-height: 1;
+}
+.scoremax{
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    line-height: 1;
+}
+.progtrack{
+    width: 100%;
+    height: 8px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progfill{
+    height: 100%;
+    background: linear-gradient(90deg,#34c759,#32b353);
+    border-radius: 10px;
+    width: 0%;
+    animation: fillBar 1.5s cubic-bezier(0.2, 1, 0.3, 1) 0.6s forwards;
+}
+.inforow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.badge{
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.badgeorg { background: #ff9500; }
+.badgegreen { background: #34c759; }
+.infotitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin: 0;
+}
+.infosubtitle {
+    font-size: 0.85rem;
+    color: #86868b;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes floatContinual {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+@keyframes fillBar {
+    from { width: 0%; }
+    to { width: 85%; }
+}
+@keyframes pulseGloe{
+    from { transform: scale(1); opacity: 0.5; }
+    to { transform: scale(1.2); opacity: 0.8; }
+}
+
+
 .navbar {
     position: fixed;
     width: 100%;
@@ -67,6 +198,9 @@ body {
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
+
+
+
 
 .navthings {
     max-width: 1100px;
