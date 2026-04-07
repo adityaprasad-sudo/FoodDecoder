@@ -8,7 +8,7 @@
     --secondary-gray: #e8e8ed;
     --accent-orange: #ff9500;
     --stupid-pink: #ff002b;
-    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-bg: rgba(255, 255, 255, 0.5);
     --glass-border: 1px solid rgba(255, 255, 255, 0.5);
     --shadow-subtle: 0 4px 24px rgba(0, 0, 0, 0.04);
     --shadow-float: 0 14px 40px rgba(0, 0, 0, 0.08);
@@ -56,15 +56,15 @@ body {
     top: 0;
     padding: 16px 50px;
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
     border-bottom: 1px solid rgba(0,0,0,0.05);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 .navbar.scrolled {
     padding: 10px 50px;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
