@@ -294,7 +294,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         html5QrCode.start(
             { facingMode: "environment" },
-            { fps: 10, aspectRatio: window.innerWidth / 400, qrbox: (viewportWidth, viewportHeight) => {return{width: viewportWidth * 0.75, height: 150}; } },
+            { fps: 10, qrbox: () => {
+                let boxWidth = window.innerWidth * 0.75;
+                if (boxWidth > 300) boxWidth = 300;
+                return { width: boxWidth, height: 150 };
+
+            } },
 
             async (decodedText) => {
                 await html5QrCode.stop();
