@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         html5QrCode.start(
             { facingMode: "environment" },
-            { fps: 10, qrbox: { width: 250, height: 150 } },
+            { fps: 10, aspectRatio: window.innerWidth / 400, qrbox: (viewportWidth, viewportHeight) => {return{width: viewportWidth * 0.75, height: 150}; } },
 
             async (decodedText) => {
                 await html5QrCode.stop();
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         headers: { "Content-Type": "application/json" },
                         body:    JSON.stringify({
                             ingredients: offData.product.ingredients_text,
-                            api_key:     DUMMY_API_KEY
+                            api_key: DUMMY_API_KEY
                         })
                     });
 
