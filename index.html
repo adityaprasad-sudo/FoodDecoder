@@ -19,14 +19,14 @@
 <nav class="navbar" id="navbar">
     <div class="navthings">
         <div class="logo">Decode<span>Food</span></div>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <button class="navtog" id="navToggle" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
         <ul class="navportal" id="navLinks">
             <li><a href="aboutpage.html">About</a></li>
             <li><a href="https://world.openfoodfacts.org/">Source</a></li>
             <li><a href="disclaimer.html">Disclaimer</a></li>
-            <li><a href="#" class="nav-btn highlight-link">Support Us</a></li>
+            <li><a href="#" class="nav-btn linkglow">Support Us</a></li>
         </ul>
     </div>
 </nav>
@@ -34,76 +34,74 @@
 <main class="container">
     <section class="hero">
         <div class="herocon fade-in-up" style="transition-delay: 0.1s;">
-            <h1 class="gradient-text">Decode Your Food.</h1>
-            <p class="hero-subtitle">Know What You Are Eating !!</p>
-            <div class="button-group">
-                <button class="primary-btn magnetic" id="openScannerBtn">Scan Barcode</button>
+            <h1 class="gradienttxt">Decode Your Food.</h1>
+            <p class="herosub">Know What You Are Eating !!</p>
+            <div class="btngroup">
+                <button class="primebtn magnetic" id="openScannerBtn">Scan Barcode</button>
                 <input type="file" id="imageInput" accept="image/*" capture="environment" hidden>
-                <label for="imageInput" class="secondary-btn magnetic">Take Photo(ingredient list)</label>
+                <label for="imageInput" class="secondbtn magnetic">Take Photo(ingredient list)</label>
                 <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: -8px;">Scan failing? Upload an image instead.</p>
             </div>
         </div>
     </section>
 
-    <section class="steps-section">
-        <div class="step-card interactive-card fade-in-up" style="transition-delay: 0.1s;">
-            <div class="step-icon">📱</div><h4>Scan</h4>
-            <p>Point your camera at the food label or barcode.</p>
+    <section class="stepsec">
+        <div class="stepcard playcard fade-in-up" style="transition-delay: 0.1s;">
+            <div class="stepicon"><img src="scanner.png" alt="Scannerpng" width="80" height="70" ></img></div><h4>Scan</h4>
+            <p>Point Your camera towards the barcode of the food package if the food isnt in our database use the Take photo option</p>
             <div class="glare"></div>
         </div>
-        <div class="step-card interactive-card fade-in-up" style="transition-delay: 0.2s;">
-            <div class="step-icon">🧠</div><h4>Analyze</h4>
-            <p>Our AI decodes every ingredient and additive.</p>
+        <div class="stepcard playcard fade-in-up" style="transition-delay: 0.2s;">
+            <div class="stepicon"><img src="ai.png" alt="aipng" width="80" height="70" ></img></div><h4>Analyze</h4>
+            <p>AI models Fetch ingredient list and prepares a detailed report.</p>
             <div class="glare"></div>
         </div>
-        <div class="step-card interactive-card fade-in-up" style="transition-delay: 0.3s;">
-            <div class="step-icon">✅</div><h4>Result</h4>
-            <p>Get a plain-English safety breakdown instantly with potential benefits and risks/allergens.</p>
+        <div class="stepcard playcard fade-in-up" style="transition-delay: 0.3s;">
+            <div class="stepicon"><img src="result.png" alt="resultpng" width="80" height="70" ></img></div><h4>Result</h4>
+            <p>Get a plain English safety breakdown with potential benefits and risks/allergens.</p>
             <div class="glare"></div>
         </div>
     </section>
 
-    <section class="chemistry-section">
-        <h2 class="section-title fade-in-up">Understanding the Science</h2>
-        <div class="bento-grid">
-            <div class="bento-card interactive-card fade-in-up" style="transition-delay: 0.1s;">
+    <section class="chemsection">
+        <h2 class="sectitle fade-in-up">Emulsifiers and Additives</h2>
+        <div class="bengrid">
+            <div class="bencard playcard fade-in-up" style="transition-delay: 0.1s;">
                 <h4>Maltodextrin</h4>
                 <p>A high-glycemic carbohydrate used to improve texture.</p>
                 <div class="glare"></div>
             </div>
-            <div class="bento-card interactive-card fade-in-up" style="transition-delay: 0.2s;">
+            <div class="bencard playcard fade-in-up" style="transition-delay: 0.2s;">
                 <h4>MSG (INS 621)</h4>
-                <p>The pure essence of Umami. Decoded for sensitivity.</p>
+                <p>It can cause temporary reactions (headaches, flushing) and is a Common Flavour Enhancer</p>
                 <div class="glare"></div>
             </div>
-            <div class="bento-card highlight interactive-card fade-in-up" style="transition-delay: 0.3s;">
-                <h4>Cottage Cheese (Panner)</h4>
-                <div class="comparison flex-icons">
-                    <span>Analogue</span><span class="vs">vs</span><span>Natural</span>
-                </div>
+            <div class="bencard highlight playcard fade-in-up" style="transition-delay: 0.3s;">
+                <h4>Sodium Nitrite / Nitrate (Processed Meats)</h4>
+                <p>It is used to preserve meat, it can form cancer causing nitrosamines when heated, increasing the risk of cancers.</p>
                 <div class="glare"></div>
             </div>
         </div>
     </section>
 </main>
 
-<div class="scanner-modal" id="scannerModal">
-    <div class="scanner-backdrop"></div>
-    <div class="scanner-container">
-        <button class="close-modal" id="closeScannerBtn">×</button>
-        <div class="camera-viewport">
+<div class="scanmodal" id="scannerModal">
+    <div class="backdrop"></div>
+    <div class="scancontainer">
+        <button class="closemodal" id="closeScannerBtn">×</button>
+        <div class="donottouch">
             <div id="reader"></div>
-            <div class="corner top-left"></div><div class="corner top-right"></div>
-            <div class="corner bottom-left"></div><div class="corner bottom-right"></div>
-            <div class="active-laser"></div>
-            <p class="scanner-status" id="scannerStatus">Initializing Camera...</p>
+            <div class="corner topleft"></div><div class="corner topright"></div>
+            <div class="corner botttomleft"></div><div class="corner botttomrightt"></div>
+            <div class="sigmalazer"></div>
+            <p class="scannerstats" id="scannerStatus">Initializing Camera...</p>
         </div>
-        <div class="processing-ui" id="processingUI">
-            <div class="apple-spinner"></div>
-            <p class="processing-text">Analyzing Ingredients</p>
+        <div class="proceesingui" id="processingUI">
+            <div class="spinner"></div>
+            <p class="textprocess">Analyzing Ingredients</p>
             <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">Powered by AI</p>
         </div>
-        <div class="mock-results" id="mockResults"></div>
+        <div class="mokresult" id="mockResults"></div>
     </div>
 </div>
 
@@ -118,6 +116,7 @@
     const navLinks  = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    
 </script>
 </body>
 </html>
