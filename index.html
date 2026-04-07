@@ -39,15 +39,39 @@
             <div class="button-group">
                 <button class="primary-btn magnetic" id="openScannerBtn">Scan Barcode</button>
                 <input type="file" id="imageInput" accept="image/*" capture="environment" hidden>
-                <label for="imageInput" class="secondary-btn magnetic">Upload / Take Photo(use if scanner doesn't work)</label>
+                <label for="imageInput" class="secondary-btn magnetic">Upload / Take Photo</label>
+                <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: -8px;">Scan failing? Upload an image instead.</p>
             </div>
         </div>
 
-        <div class="herovi fade-in-up" style="transition-delay: 0.3s;">
-            
-            <div class="heroimgwrap">
-                <img src="demo.png" alt="foodscanillu" class="herostatimg">
-            </div>
+        <div class="herovi" id="tiltcont">
+            <div class="stackglow"></div>
+            <div class="mockupstack" id="tiltstack">
+                <div class="glasscard cardtop">
+                   <div class="cardhead">Health Score</div>
+                   <div class="scoredisplay">
+                       <span class="scorenum">8.5</span>
+                       <span class="scoremax">/10</span>
+                   </div>
+                   <div class="progtrack">
+                      <div class="progfill"></div>
+                   </div>
+                </div>
+                <div class="glasscard cardmid">
+                   <div class="inforow">
+                       <div class="badge badgeorg">Warning</div>
+                       <p class="infotitle">Allergens Detected</p>
+                    </div>
+                    <p class="infosubtitle">Exceeds recommended intake.</p>
+                </div>
+                <div class="glasscard cardbottom">
+                   <div class="inforow">
+                      <div class="badge badgegreen">Clear</div>
+                      <p class="infotitle">High Protein</p>
+                    </div>
+                    <p class="infosubtitle">Helps Build Muscles</p>
+                </div>
+            </div> 
         </div>
     </section>
 
