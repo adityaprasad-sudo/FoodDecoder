@@ -1,13 +1,11 @@
-    //NOTE: This Javascript is written with the help of claude because i am not really good in 
-    // javascript so to fix bugs and make it seamless and easy to understand claude has been 
-    // used PLease dont cuss me if something is off.
-
+//NOTE: This Javascript is written with the help of claude because i am not really good in 
+// javascript so to fix bugs and make it seamless and easy to understand claude has been 
+// used PLease dont cuss me if something is off.
 
 document.addEventListener('DOMContentLoaded', () => {
     const BACKEND_IMAGE_API = "https://ambitiouspotato-backendforfooddecoder.hf.space/analyze";
     const BACKEND_TEXT_API  = "https://ambitiouspotato-backendforfooddecoder.hf.space/analyze_text";
     const DUMMY_API_KEY     = "shiggaapi";
-
 
     const blob = document.getElementById('blob');
     document.addEventListener('mousemove', (e) => {
@@ -32,9 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.15 });
     document.querySelectorAll('.fade-in-up').forEach(el => scrollObserver.observe(el));
+    
     const tiltCont = document.getElementById('tiltcont');
     const tiltstack = document.getElementById('tiltstack');
-    tiltCont.addEventListener('mousemove', (e) => {
+    if (tiltCont && tiltstack) {
+        tiltCont.addEventListener('mousemove', (e) => {
             const rect = tiltCont.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
@@ -53,14 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
         tiltCont.addEventListener('mouseenter', () => {
             tiltstack.style.transition = 'transform 0.1s ease-out';
         });
+    }
 
-    document.querySelectorAll('.interactive-card').forEach(card => {
+    document.querySelectorAll('.playcard').forEach(card => {
         const glare = card.querySelector('.glare');
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left, y = e.clientY - rect.top;
             const rx = ((y - rect.height/2) / (rect.height/2)) * -10;
-            const ry = ((x - rect.width/2)  / (rect.width/2))  *  10;
+            const ry = ((x - rect.width/2)  / (rect.width/2))  * 10;
             card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.02,1.02,1.02)`;
             if (glare) glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.4), transparent 60%)`;
         });
@@ -85,14 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const openBtn      = document.getElementById('openScannerBtn');
     const closeBtn     = document.getElementById('closeScannerBtn');
     const modal        = document.getElementById('scannerModal');
-    const viewport     = document.querySelector('.camera-viewport');
+    const viewport     = document.querySelector('.donottouch');
     const statusText   = document.getElementById('scannerStatus');
     const mockResults  = document.getElementById('mockResults');
     const imageInput   = document.getElementById('imageInput');
     const processingUI = document.getElementById('processingUI');
 
     let html5QrCode = null;
-
 
     const formatAIText = (text) => {
         if (!text) return "No summary provided.";
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const generateInteractiveReport = (healthsum, ingredientsList, issuesList, benefitsList, healthScore) => {
-        modal.querySelector('.scanner-container').scrollTop = 0;
+        modal.querySelector('.scancontainer').scrollTop = 0;
 
         const safeIngredients = Array.isArray(ingredientsList) ? ingredientsList : [ingredientsList];
         const safeIssues      = Array.isArray(issuesList)      ? issuesList      : [issuesList];
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (html5QrCode?.isScanning) html5QrCode.stop();
     });
 
-    modal.querySelector('.scanner-backdrop').addEventListener('click', () => {
+    modal.querySelector('.backdrop').addEventListener('click', () => {
         modal.classList.remove('active');
         if (html5QrCode?.isScanning) html5QrCode.stop();
     });
