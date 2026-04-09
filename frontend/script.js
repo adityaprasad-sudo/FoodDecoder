@@ -138,13 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <div style="width: 100%; display: flex; flex-direction: column; gap: 12px;">
                     <button
-                        class="primary-btn"
+                        class="primebtn"
                         id="retryBtn"
                         style="width:100%;"
                     >Try Again</button>
                     <label
                         for="imageInput"
-                        class="secondary-btn"
+                        class="secondbtn"
                         style="width:100%; cursor:pointer;"
                     >Upload a Photo Instead</label>
                 </div>
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">
                 <div>
                     <h3 style="font-size:1.5rem;margin-bottom:5px;letter-spacing:-0.02em;">Analysis Complete</h3>
-                    <p style="color:#86868b;font-size:0.9rem;">Powered by Gemini AI</p>
+                    <p style="color:#86868b;font-size:0.9rem;">Powered by Ai models</p>
                 </div>
                 <div style="text-align:right;background:#f5f5f7;padding:10px 15px;border-radius:16px;">
                     <span style="font-size:0.7rem;color:#86868b;text-transform:uppercase;font-weight:700;display:block;margin-bottom:2px;">Health Score</span>
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
 
-            <button class="secondary-btn" id="resetScannerBtnDynamic" style="width:100%;padding:16px;font-weight:600;">Scan Another Item</button>
+            <button class="secondbtn" id="resetScannerBtnDynamic" style="width:100%;padding:16px;font-weight:600;">Scan Another Item</button>
         `;
 
         const accContent = mockResults.querySelector('.accordion-content');
@@ -269,8 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
             processingUI.classList.remove('active');
             mockResults.classList.add('show');
             generateInteractiveReport(
-                data.health_summary, data.ingredients,
-                data.potential_issues, data.health_benefits, data.health_score
+                data.healthsum, data.ingredientsList,
+                data.issuesList, data.benefitsList, data.healthScore
             );
         } catch (error) {
             console.error(error);
@@ -336,8 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     processingUI.classList.remove('active');
                     mockResults.classList.add('show');
                     generateInteractiveReport(
-                        aiData.health_summary, aiData.ingredients,
-                        aiData.potential_issues, aiData.health_benefits, aiData.health_score
+                        aiData.healthsum, aiData.ingredientsList,
+                        aiData.issuesList, aiData.benefitsList, aiData.healthScore
                     );
 
                 } catch (err) {

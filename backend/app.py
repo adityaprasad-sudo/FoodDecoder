@@ -50,12 +50,16 @@ async def barcodetext(request: TextRequest):
     1. Extract and standardize the ingredients.
     2. Provide a short, easy to understand health summary for eg.(is it healthy, protein rich, ultra processed, etc.?).
     3. Identify any potential allergens, harmful additives or hidden sugars.
+    4. Identify any potential health benefits.
+    5. Give it a health score from 1 to 10.
 
     Format your response as a JSON object with the following structure:
     {{
-        "ingredients": ["list of ingredients"],
-        "health_summary": "short health summary",
-        "potential_issues": ["list of potential issues"]
+        "ingredientsList": ["list of ingredients"],
+        "healthsum": "short health summary",
+        "issuesList": ["list of potential issues"]
+        "benefitsList": ["list of health benefits"]
+        "healthScore": "health score"
     }}
     Return only the JSON object without any additional text or explanations.
     """
@@ -86,12 +90,16 @@ async def analyzefood(image: UploadFile = File(...), api_key: str = Form(...)):
     1. Extract the ingredients.
     2. Provide a short, easy to understand health summary for eg.(is it healthy, protein rich, ultra processed, etc.?).
     3. Identify any potential allergens, harmful additives or hidden sugars.
+    4. Identify any potential health benefits.
+    5. Give it a health score from 1 to 10.
 
     Format your response as a JSON object with the following structure:
     {
-        "ingredients": ["list of ingredients"],
-        "health_summary": "short health summary",
-        "potential_issues": ["list of potential issues"]
+        "ingredientsList": ["list of ingredients"],
+        "healthsum": "short health summary",
+        "issuesList": ["list of potential issues"]
+        "benefitsList": ["list of health benefits"]
+        "healthScore": "health score"
     }
     Return only the JSON object without any additional text or explanations.
     """
