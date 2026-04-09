@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const BACKEND_IMAGE_API = "https://ambitiouspotato-backendforfooddecoder.hf.space/analyze";
-    const BACKEND_TEXT_API  = "https://ambitiouspotato-backendforfooddecoder.hf.space/analyze_text";
+    const BACKEND_TEXT_API  = "https://ambitiouspotato-backendforfooddecoder.hf.space/analyzetext";
     const DUMMY_API_KEY     = "shiggaapi";
 
     const blob = document.getElementById('blob');
