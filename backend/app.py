@@ -122,6 +122,8 @@ async def analyzefood(image: UploadFile = File(...), api_key: str = Form(...)):
     try:
         imagebites = await image.read()
         img = Image.open(io.BytesIO(imagebites))
+        if not img:
+            raise ValueError("empty file")
 
         if img.mode != 'RGB':
             img = img.convert('RGB')
@@ -131,9 +133,11 @@ async def analyzefood(image: UploadFile = File(...), api_key: str = Form(...)):
         buffer = io.BytesIO()
         img.save(buffer, format="JPEG", quality=85)
         img64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
-        
+    except Exception as e:
+            print(f"Image Processing Error: {e}")
+    try:        
         response = await client.chat.completions.create(
-            model="anthropic/claude-opus-4.8-fast",
+            model="google/gemini-3.1-flash-lite",
             messages=[
                 {
                     "role": "user",
@@ -162,18 +166,6 @@ async def analyzefood(image: UploadFile = File(...), api_key: str = Form(...)):
     except Exception as error:
      print(f"Image Analysis Error: {error}, trying different model")
      try: 
-            imagebites = await image.read()
-            img = Image.open(io.BytesIO(imagebites))
-
-            if img.mode != 'RGB':
-              img = img.convert('RGB')
-            
-            img.thumbnail((1024, 1024))
-        
-            buffer = io.BytesIO()
-            img.save(buffer, format="JPEG", quality=85)
-            img64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
-        
             response = await client.chat.completions.create(
               model="perceptron/perceptron-mk1",
               messages=[
@@ -201,7 +193,7 @@ async def analyzefood(image: UploadFile = File(...), api_key: str = Form(...)):
             
             return json.loads(responcetxt)
      except Exception as e3:
-          print(f"Image Analysis Error: {e3}, trying different model")
+          print(f"Image Analysis Error: {e3}")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=7860)
