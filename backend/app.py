@@ -69,19 +69,28 @@ async def barcodetext(request: TextRequest):
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"}
         )
-        
         responcetxt = response.choices[0].message.content.strip()
         
         if responcetxt.startswith("```json"):
             responcetxt = responcetxt[7:-3]
         elif responcetxt.startswith("```"):
             responcetxt = responcetxt[3:-3]
-            
         return json.loads(responcetxt)
-        
+    
     except Exception as e:
-        print(f"Text Analysis Error: {e}")
-        raise HTTPException(status_code=500, detail="Error while processing the text.")    
+            print(f"Error: {e}, trying claude")
+            try:
+                response = await client.chat.completions.create(
+                    model="anthropic/claude-opus-4.8-fast",
+                    messages=[{"role": "user", "content": prompt}]
+                )
+            except Exception as e2:
+                    print(f"Fallback Error: {e2}")
+                    raise HTTPException(status_code=500, detail="An error occurred while analyzing the ingredients.")        
+        
+    
+        
+  
 
 @app.post("/analyze")
 async def analyzefood(image: UploadFile = File(...), api_key: str = Form(...)):
@@ -117,7 +126,7 @@ async def analyzefood(image: UploadFile = File(...), api_key: str = Form(...)):
         img64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
         
         response = await client.chat.completions.create(
-            model="nvidia/nemotron-nano-12b-v2-vl",
+            model="anthropic/claude-opus-4.8-fast",
             messages=[
                 {
                     "role": "user",
@@ -144,8 +153,48 @@ async def analyzefood(image: UploadFile = File(...), api_key: str = Form(...)):
         return json.loads(responcetxt)
 
     except Exception as error:
-        print(f"Image Analysis Error: {error}")
-        raise HTTPException(status_code=500, detail="An error occurred while analyzing the food label.")
+     print(f"Image Analysis Error: {error}, trying different model")
+     try: 
+            imagebites = await image.read()
+            img = Image.open(io.BytesIO(imagebites))
+
+            if img.mode != 'RGB':
+              img = img.convert('RGB')
+            
+            img.thumbnail((1024, 1024))
+        
+            buffer = io.BytesIO()
+            img.save(buffer, format="JPEG", quality=85)
+            img64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+        
+            response = await client.chat.completions.create(
+              model="perceptron/perceptron-mk1",
+              messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": prompt},
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": f"data:image/jpeg;base64,{img64}"
+                            }
+                        }
+                    ]
+                }
+              ],
+            )
+        
+            responcetxt = response.choices[0].message.content.strip()
+        
+            if responcetxt.startswith("```json"):
+              responcetxt = responcetxt[7:-3]
+            elif responcetxt.startswith("```"):
+              responcetxt = responcetxt[3:-3]
+            
+            return json.loads(responcetxt)
+     except Exception as e3:
+          print(f"Image Analysis Error: {e3}, trying different model")
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=7860)
+    uvicorn.run(app, host="127.0.0.1", port=7860)
