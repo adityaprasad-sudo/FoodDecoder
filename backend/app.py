@@ -84,6 +84,13 @@ async def barcodetext(request: TextRequest):
                     model="anthropic/claude-opus-4.8-fast",
                     messages=[{"role": "user", "content": prompt}]
                 )
+                responcetxt = response.choices[0].message.content.strip()
+        
+                if responcetxt.startswith("```json"):
+                 responcetxt = responcetxt[7:-3]
+                elif responcetxt.startswith("```"):
+                 responcetxt = responcetxt[3:-3]
+                return json.loads(responcetxt)
             except Exception as e2:
                     print(f"Fallback Error: {e2}")
                     raise HTTPException(status_code=500, detail="An error occurred while analyzing the ingredients.")        
