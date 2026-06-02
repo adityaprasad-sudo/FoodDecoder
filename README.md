@@ -6,6 +6,7 @@ DO NOTE:- AI can Make mistakes.
 # AI Usage
 
 While coding the backend and frontend of the webpage i coded it in vscode which allowed me to use in line suggestions therfore some parts of the Code is (ai)ish probably somewhat 30%.
+learn more about vscode in line suggestions here:- https://code.visualstudio.com/docs/editing/ai-powered-suggestions
 
 
 # Features
