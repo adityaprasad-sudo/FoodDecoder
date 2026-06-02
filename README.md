@@ -3,6 +3,10 @@
 Food Decoder is an open source project designed to help you purchase healthy products to live long and be healthy using AI models to highlight the product's potential benefits and harmful effects. 
 DO NOTE:- AI can Make mistakes.
 
+# AI Usage
+
+While coding the backend and frontend of the webpage i coded it in vscode which allowed me to use in line suggestions therfore some parts of the Code is (ai)ish probably somewhat 30%.
+
 
 # Features
 
